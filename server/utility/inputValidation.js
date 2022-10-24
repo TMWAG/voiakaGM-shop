@@ -27,4 +27,14 @@ module.exports = class InputValidation {
     const tgLinkRegExp = /^[A-Za-z\d_]{5,32}$/;
     return tgLinkRegExp.test(tgLink);
   }
+
+  static checkVKLink(vkLink){
+    const vkLinkRegExp = /(http:\/\/|https:\/\/)?(www.)?(vk\.com|vkontakte\.ru)\/(id(\d{9})|[a-zA-Z0-9_.]+)/;
+    return vkLinkRegExp.test(vkLink);
+  }
+
+  static checkLogin(login){
+    const loginRegExp = /^[a-zA-Z](.[a-zA-Z0-9_-]*)$/;
+    return loginRegExp.text(login);
+  }
 };
