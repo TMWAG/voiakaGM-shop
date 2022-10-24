@@ -18,11 +18,6 @@ const Role = sequelize.define("role", {
   roleName: { type: DataTypes.STRING, allowNull: false, unique: true },
 });
 
-const AccessLevel = sequelize.define("accessLevel", {
-  id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  accessLevelName: { type: DataTypes.STRING, allowNull: false, unique: true },
-});
-
 const UserAddress = sequelize.define("user_address", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
   address: { type: DataTypes.STRING, allowNull: false },
@@ -103,10 +98,6 @@ UserAddress.belongsTo(User);
 Role.hasMany(User);
 User.belongsTo(Role);
 
-//access level's connections
-AccessLevel.hasMany(Role);
-Role.belongsTo(AccessLevel);
-
 //product's connections
 Product.hasMany(Feedback);
 Feedback.belongsTo(Product);
@@ -148,7 +139,6 @@ Order.belongsTo(DeliveryService);
 module.exports = {
   User,
   Role,
-  AccessLevel,
   UserAddress,
   Feedback,
   Product,
