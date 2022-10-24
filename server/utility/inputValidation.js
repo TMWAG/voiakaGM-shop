@@ -35,6 +35,6 @@ module.exports = class InputValidation {
 
   static checkLogin(login){
     const loginRegExp = /^[a-zA-Z](.[a-zA-Z0-9_-]*)$/;
-    return loginRegExp.text(login);
+    return loginRegExp.test(login);
   }
 };
