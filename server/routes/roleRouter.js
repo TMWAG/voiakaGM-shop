@@ -3,13 +3,13 @@ const router = new Router();
 const roleController = require("../controllers/roleController");
 const checkRoleMiddleware = require("../middleware/checkRoleMiddleware");
 
-router.post("/create", checkRoleMiddleware(3), roleController.create);
+router.post("/create", checkRoleMiddleware(process.env.DEFAULT_ADMINISTRATOR_ROLE), roleController.create);
 
 router.get("/all", roleController.getAll);
 router.get("/:id", roleController.getOneById);
 
-router.put("/rename", checkRoleMiddleware(3), roleController.renameById);
+router.put("/rename", checkRoleMiddleware(process.env.DEFAULT_ADMINISTRATOR_ROLE), roleController.renameById);
 
-router.delete("/delete", checkRoleMiddleware(3), roleController.deleteById);
+router.delete("/delete", checkRoleMiddleware(process.env.DEFAULT_ADMINISTRATOR_ROLE), roleController.deleteById);
 
 module.exports = router;
