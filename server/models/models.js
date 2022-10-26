@@ -3,7 +3,7 @@ const { DataTypes } = require("sequelize");
 
 const User = sequelize.define("user", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  login: { type: DataTypes.STRING, allowNull:false, unique: true},
+  login: { type: DataTypes.STRING, allowNull: false, unique: true },
   name: { type: DataTypes.STRING, allowNull: false },
   surname: { type: DataTypes.STRING, allowNull: false },
   phone: { type: DataTypes.STRING, allowNull: false, unique: true },
@@ -31,7 +31,7 @@ const Feedback = sequelize.define("feedback", {
 
 const Product = sequelize.define("product", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
-  productName: { type: DataTypes.STRING, allowNull: false, unique: true},
+  productName: { type: DataTypes.STRING, allowNull: false, unique: true },
   price: { type: DataTypes.INTEGER, allowNull: false },
   amount: { type: DataTypes.INTEGER, allowNull: false },
   discount: { type: DataTypes.INTEGER, allowNull: true },

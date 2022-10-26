@@ -23,17 +23,18 @@ module.exports = class InputValidation {
     return passwordRegExp.test(password);
   }
 
-  static checkTgLink(tgLink){
+  static checkTgLink(tgLink) {
     const tgLinkRegExp = /^[A-Za-z\d_]{5,32}$/;
     return tgLinkRegExp.test(tgLink);
   }
 
-  static checkVKLink(vkLink){
-    const vkLinkRegExp = /(http:\/\/|https:\/\/)?(www.)?(vk\.com|vkontakte\.ru)\/(id(\d{9})|[a-zA-Z0-9_.]+)/;
+  static checkVKLink(vkLink) {
+    const vkLinkRegExp =
+      /(http:\/\/|https:\/\/)?(www.)?(vk\.com|vkontakte\.ru)\/(id(\d{9})|[a-zA-Z0-9_.]+)/;
     return vkLinkRegExp.test(vkLink);
   }
 
-  static checkLogin(login){
+  static checkLogin(login) {
     const loginRegExp = /^[a-zA-Z](.[a-zA-Z0-9_-]*)$/;
     return loginRegExp.test(login);
   }
