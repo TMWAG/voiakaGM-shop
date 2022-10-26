@@ -31,6 +31,7 @@ const Feedback = sequelize.define("feedback", {
 
 const Product = sequelize.define("product", {
   id: { type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true },
+  productName: { type: DataTypes.STRING, allowNull: false, unique: true},
   price: { type: DataTypes.INTEGER, allowNull: false },
   amount: { type: DataTypes.INTEGER, allowNull: false },
   discount: { type: DataTypes.INTEGER, allowNull: true },
