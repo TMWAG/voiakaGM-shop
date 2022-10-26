@@ -60,7 +60,7 @@ module.exports = class UserController {
       if(!user){
         return next(ApiError.badRequest("Пользователь с таким логином не найден"));
       }
-      if(await bcrypt.compare(password, user.password)){
+      if(!await bcrypt.compare(password, user.password)){
         return next(ApiError.badRequest("Введён неверный пароль"));
       }
       const token = generateJwt(user.id, user.login, user.roleId);
