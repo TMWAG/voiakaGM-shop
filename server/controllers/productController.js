@@ -37,16 +37,9 @@ module.exports = class ProductController {
       const product = await Product.findAndCountAll({
         limit,
         offset,
-        attributes: [
-          "id",
-          "productName",
-          "price",
-          "amount",
-          "discount",
-          "description",
-          "vendorId",
-          "categoryId",
-        ],
+        attributes: {
+          exclude: ["createdAt", "updatedAt"],
+        },
       });
       return res.json(product);
     } catch (e) {
