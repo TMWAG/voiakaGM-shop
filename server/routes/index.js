@@ -8,6 +8,7 @@ const categoryRouter = require("./categoryRouter");
 const productRouter = require("./productRouter");
 const productPictureRouter = require("./productPictureRouter");
 const characteristicRouter = require("./characteristicRouter");
+const userAddressRouter = require("./userAddressRouter");
 
 router.use("/user", userRouter);
 router.use("/role", roleRouter);
@@ -17,5 +18,6 @@ router.use("/category", categoryRouter);
 router.use("/product", productRouter);
 router.use("/picture", productPictureRouter);
 router.use("/characteristic", characteristicRouter);
+router.use("/user_address", userAddressRouter);
 
 module.exports = router;
