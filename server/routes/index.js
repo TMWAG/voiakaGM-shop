@@ -11,6 +11,7 @@ const characteristicRouter = require("./characteristicRouter");
 const userAddressRouter = require("./userAddressRouter");
 const feedbackRouter = require("./feedbackRouter");
 const statusRouter = require("./statusRouter");
+const deliveryServiceRouter = require("./deliveryServiceRouter");
 
 router.use("/user", userRouter);
 router.use("/role", roleRouter);
@@ -23,5 +24,6 @@ router.use("/characteristic", characteristicRouter);
 router.use("/user_address", userAddressRouter);
 router.use("/feedback", feedbackRouter);
 router.use("/status", statusRouter);
+router.use("/delivery_service", deliveryServiceRouter);
 
 module.exports = router;
