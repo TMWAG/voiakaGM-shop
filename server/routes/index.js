@@ -10,6 +10,7 @@ const productPictureRouter = require("./productPictureRouter");
 const characteristicRouter = require("./characteristicRouter");
 const userAddressRouter = require("./userAddressRouter");
 const feedbackRouter = require("./feedbackRouter");
+const statusRouter = require("./statusRouter");
 
 router.use("/user", userRouter);
 router.use("/role", roleRouter);
@@ -21,5 +22,6 @@ router.use("/picture", productPictureRouter);
 router.use("/characteristic", characteristicRouter);
 router.use("/user_address", userAddressRouter);
 router.use("/feedback", feedbackRouter);
+router.use("/status", statusRouter);
 
 module.exports = router;
