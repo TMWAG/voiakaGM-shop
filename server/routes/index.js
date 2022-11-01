@@ -13,6 +13,7 @@ const feedbackRouter = require("./feedbackRouter");
 const statusRouter = require("./statusRouter");
 const deliveryServiceRouter = require("./deliveryServiceRouter");
 const orderRouter = require("./orderRouter");
+const orderedProductRouter = require("./orderedProductRouter");
 
 router.use("/user", userRouter);
 router.use("/role", roleRouter);
@@ -27,5 +28,6 @@ router.use("/feedback", feedbackRouter);
 router.use("/status", statusRouter);
 router.use("/delivery_service", deliveryServiceRouter);
 router.use("/order", orderRouter);
+router.use("/ordered_product", orderedProductRouter);
 
 module.exports = router;
