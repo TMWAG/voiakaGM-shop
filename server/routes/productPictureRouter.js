@@ -4,25 +4,22 @@ const productPictureController = require("../controllers/productPictureControlle
 const checkRoleMiddleware = require("../middleware/checkRoleMiddleware");
 
 router.post(
-    "/add", 
-    checkRoleMiddleware(process.env.MODERATOR_ROLE_ID),
-    productPictureController.addToProductById
+  "/add",
+  checkRoleMiddleware(process.env.MODERATOR_ROLE_ID),
+  productPictureController.addToProductById
 );
 
-router.get(
-    "/:productId",
-    productPictureController.getAllByProductId
-);
+router.get("/:productId", productPictureController.getAllByProductId);
 
 router.delete(
-    "/delete",
-    checkRoleMiddleware(process.env.MODERATOR_ROLE_ID),
-    productPictureController.deleteById
+  "/delete",
+  checkRoleMiddleware(process.env.MODERATOR_ROLE_ID),
+  productPictureController.deleteById
 );
 router.delete(
-    "/product_delete",
-    checkRoleMiddleware(process.env.MODERATOR_ROLE_ID),
-    productPictureController.deleteAllByProductId
-)
+  "/product_delete",
+  checkRoleMiddleware(process.env.MODERATOR_ROLE_ID),
+  productPictureController.deleteAllByProductId
+);
 
 module.exports = router;

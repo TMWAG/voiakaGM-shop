@@ -3,7 +3,7 @@ const ApiError = require("../error/ApiError");
 const uuid = require("uuid");
 const path = require("path");
 const fs = require("fs");
-const staticFolderPath = path.resolve(__dirname, "..", "static", "products")
+const staticFolderPath = path.resolve(__dirname, "..", "static", "products");
 
 module.exports = class ProductPictureController {
   static async addToProductById(req, res, next) {
@@ -11,10 +11,7 @@ module.exports = class ProductPictureController {
       const { productId } = req.body;
       const { img } = req.files;
       let filename = uuid.v4() + ".jpg";
-      let folderPath = path.resolve(
-        staticFolderPath,
-        `${productId}`
-      );
+      let folderPath = path.resolve(staticFolderPath, `${productId}`);
       if (!fs.existsSync(folderPath)) {
         fs.mkdir(folderPath, (e) => {
           if (e) {
@@ -22,13 +19,7 @@ module.exports = class ProductPictureController {
           }
         });
       }
-      img.mv(
-        path.resolve(
-          staticFolderPath,
-          `${productId}`,
-          filename
-        )
-      );
+      img.mv(path.resolve(staticFolderPath, `${productId}`, filename));
       const image = await Picture.create({ path: filename, productId });
       return res.json(image);
     } catch (e) {
@@ -54,9 +45,9 @@ module.exports = class ProductPictureController {
   static async deleteById(req, res, next) {
     try {
       const { id } = req.body;
-      const picture  = await Picture.findOne({ where: { id } });
+      const picture = await Picture.findOne({ where: { id } });
       fs.unlink(
-        path.resolve(staticFolderPath, `${picture.productId}`, picture.path), 
+        path.resolve(staticFolderPath, `${picture.productId}`, picture.path),
         (e) => {
           next(ApiError.internal(e.message));
         }
@@ -68,25 +59,25 @@ module.exports = class ProductPictureController {
     }
   }
 
-  static async deleteAllByProductId(req, res, next){
+  static async deleteAllByProductId(req, res, next) {
     try {
-      const {productId} = req.body;
+      const { productId } = req.body;
       fs.rm(
         path.resolve(staticFolderPath, `${productId}`),
         {
           force: true,
-          recursive: true
+          recursive: true,
         },
-        (e) =>{
-          if(e){
+        (e) => {
+          if (e) {
             next(ApiError.internal(e.message));
           }
         }
       );
-      const pictures = await Picture.destroy({where: {productId}});
+      const pictures = await Picture.destroy({ where: { productId } });
       return res.json(pictures);
     } catch (e) {
-      next(ApiError.badRequest(e.message))
+      next(ApiError.badRequest(e.message));
     }
   }
 };
