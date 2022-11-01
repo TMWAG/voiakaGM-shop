@@ -12,6 +12,7 @@ const userAddressRouter = require("./userAddressRouter");
 const feedbackRouter = require("./feedbackRouter");
 const statusRouter = require("./statusRouter");
 const deliveryServiceRouter = require("./deliveryServiceRouter");
+const orderRouter = require("./orderRouter");
 
 router.use("/user", userRouter);
 router.use("/role", roleRouter);
@@ -25,5 +26,6 @@ router.use("/user_address", userAddressRouter);
 router.use("/feedback", feedbackRouter);
 router.use("/status", statusRouter);
 router.use("/delivery_service", deliveryServiceRouter);
+router.use("/order", orderRouter);
 
 module.exports = router;
